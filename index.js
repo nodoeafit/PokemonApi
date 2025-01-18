@@ -56,26 +56,33 @@ const getPokemon = async (pokeID) => {
 
 const createPokemons = async (poke1ID, poke2ID) => {
   const pokemon1 = await getPokemon(poke1ID);
-  debugger;
-  poke1ImgElement.src = pokemon1.sprites["front_default"];
+  
+  poke1ImgElement.src = pokemon1.sprites.other["official-artwork"]["front_default"];
   poke1NameElement.innerHTML += pokemon1.name;
-  poke1HpElement.innerHTML = +pokemon1.stats[0]["base_stat"];
+  poke1HpElement.innerHTML += pokemon1.stats[0]["base_stat"];
   poke1AttackElement.innerHTML += pokemon1.stats[1]["base_stat"];
   poke1DefenseElement.innerHTML += pokemon1.stats[2]["base_stat"];
   poke1TypeElement.innerHTML += pokemon1.types[0].type.name;
 
   const pokemon2 = await getPokemon(poke2ID);
 
-  poke2ImgElement.src =
-    pokemon2.sprites.other["official-artwork"]["front_default"];
+  poke2ImgElement.src = pokemon2.sprites.other["official-artwork"]["front_default"];
   poke2NameElement.innerHTML += pokemon2.name;
   poke2HpElement.innerHTML += pokemon2.stats[0]["base_stat"];
   poke2AttackElement.innerHTML += pokemon2.stats[1]["base_stat"];
   poke2DefenseElement.innerHTML += pokemon2.stats[2]["base_stat"];
   poke2TypeElement.innerHTML += pokemon2.types[0].type.name;
 
-  console.log(pokemon1);
 };
+
+createPokemons(poke1ID,poke2ID);
+
+const catchBtn = document.querySelector(".button__catch");
+catchBtn.addEventListener("click", () =>{
+  window.location.reload();
+  //window.onload();
+});
+
 
 // BONUS 8 - Vamos a crear la función que permitirá que los pokemons interactúen y peleen
 
