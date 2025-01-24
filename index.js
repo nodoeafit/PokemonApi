@@ -6,7 +6,7 @@
 // 🤓 Pista: revisa el método document.querySelector()
 
 // Selectores para el Pokemon 1
-
+//comentario
 
 // Selectores para el Pokemon 2
 
