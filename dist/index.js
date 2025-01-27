@@ -1,6 +1,6 @@
 /*
 
-// SOLID 
+// SOLID
 //  (Single Responsibility principle) ok
 //  (Open/Closed principle) ok
 //  (Liskov's Substitution principle) ok
@@ -9,8 +9,8 @@
 
 // POO (OPP) ***
 
-// KISS (Keep it simple, stupid) 
-// DRY (Don't repeat yourself) 
+// KISS (Keep it simple, stupid)
+// DRY (Don't repeat yourself)
 // YAGNI (You ain't gonna need it)
 
 // Clean code
@@ -109,37 +109,28 @@ medioT = nuevo Carro();
 
 */
 
-import { PokemonHandler } from "./pokemon.handler";
-
-const catchButton = document.querySelector<HTMLButtonElement>(".button__catch")!;
-const fightButton = document.querySelector<HTMLButtonElement>(".button__fight")!;
-const modalButton = document.querySelector<HTMLButtonElement>(".button__modal")!;
-
+import { PokemonHandler } from "./pokemon.handler.js";
+const catchButton = document.querySelector(".button__catch");
+const fightButton = document.querySelector(".button__fight");
+const modalButton = document.querySelector(".button__modal");
 const pokemonHandler = new PokemonHandler();
-
 const poke1ID = pokemonHandler.getRandomNumber(1, 900);
 const poke2ID = pokemonHandler.getRandomNumber(1, 900);
-
 pokemonHandler.createPokemons(poke1ID, poke2ID);
-
 catchButton.addEventListener("click", () => {
     window.location.reload();
 });
-
 fightButton.addEventListener("click", () => {
-    const modalLayer = document.querySelector<HTMLElement>(".layer")!;
-    const modalContainer = document.querySelector<HTMLElement>(".modal")!;
+    const modalLayer = document.querySelector(".layer");
+    const modalContainer = document.querySelector(".modal");
     modalLayer.style.display = "block";
     modalContainer.style.display = "block";
     pokemonHandler.fightPokemons();
 });
-
 modalButton.addEventListener("click", () => {
-    const modalLayer = document.querySelector<HTMLElement>(".layer")!;
-    const modalContainer = document.querySelector<HTMLElement>(".modal")!;
+    const modalLayer = document.querySelector(".layer");
+    const modalContainer = document.querySelector(".modal");
     modalLayer.style.display = "none";
     modalContainer.style.display = "none";
     pokemonHandler.modalText.innerHTML = "";
 });
-
-
